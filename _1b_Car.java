@@ -9,17 +9,39 @@ class Car {
       this.speed = speed;
    }
    
-   public static void displayCar() {
-      System.out.println("Car: " + make + ", Model no: " + model, ", Speed: " + speed);
+   void displayCar() {
+      System.out.println("Car: " + make + ", Model: " + model + ", Initial Speed: " + speed);
    }
    
-   public static void accelerate() {
+   void accelerate() {
       speed += 5;
-      System.out.println("Speed: " + speed);
+      System.out.println("Accelerating --> Speed: " + speed);
    }
    
-   public static void brake() {
+   void brake() {
       speed -= 5;
-      System.out.println("Speed: " + speed);
+      System.out.println("Braking --> Speed: " + speed);
+   }
+}
+
+public class _1b_Car {
+   public static void main(String[] args) {
+      Car c = new Car(20, "i20 Sportz", 72);
+      c.displayCar();
+      System.out.println();
+
+      c.accelerate();
+      c.accelerate();
+      c.accelerate();
+      c.accelerate();
+      c.accelerate();
+      System.out.println();
+      
+      c.brake();
+      c.brake();
+      c.brake();
+      c.brake();
+      c.brake();
+      System.out.println();
    }
 }
