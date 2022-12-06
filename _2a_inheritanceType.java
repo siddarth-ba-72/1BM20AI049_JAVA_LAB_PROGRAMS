@@ -1,3 +1,16 @@
+/* Question:
+2a. Identify the type of inheritance in the given diagram. Create a class A with two integer member
+variables that are private, two float variables that are protected and two integer variables that are public.
+Let class B inherit class A and class C and Class D are inherited from class B. Write appropriate
+methods to illustrate the following
+i) Usage of super keyword
+ii) Function overriding
+iii) Default constructors
+iv) Parameterized constructors
+v) How to we make a method not to be over ridden and a class not be inherited further
+ */
+
+// A class with all data members
 class A {
     private int p;
     private int q;
@@ -32,6 +45,8 @@ class A {
     }
 }
 
+// B class inherited from A
+// Displays Protected members of A
 class B extends A {
     public void getMembers() {
         System.out.println("Protected members: " + u + ", " + v);
@@ -47,6 +62,8 @@ class B extends A {
     }
 }
 
+// C class inherited from B
+// Displays Public members of A
 class C extends B {
     public void getMembers() {
         System.out.println("Public members: " + x + ", " + y);
@@ -61,6 +78,8 @@ class C extends B {
     }
 }
 
+// D class inherited from B
+// Displays Private members of A
 class D extends B {
     public void getMembers() {
         System.out.println("Private members: " + getP() + ", " + getQ());
