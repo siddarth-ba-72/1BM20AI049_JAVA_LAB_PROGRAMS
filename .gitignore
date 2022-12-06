@@ -5,6 +5,10 @@
 # Log file
 *.log
 
+# vscode file
+.vscode
+/.vscode
+
 # BlueJ files
 *.ctxt
 
