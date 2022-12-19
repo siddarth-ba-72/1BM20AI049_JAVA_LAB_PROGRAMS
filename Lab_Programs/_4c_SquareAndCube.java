@@ -1,5 +1,6 @@
 import Square.Sqaure;
-// import Cube.Cube;
+import Cube.Cube;
+import java.util.Random;
 
 abstract class abs {
     int[] arr = new int[10];
@@ -9,8 +10,9 @@ abstract class abs {
 
 class GenRandomNums extends abs {
     void generateRandomNumbers() {
+        Random sc = new Random();
         for(int i = 0; i < arr.length; i++)
-            arr[i] = (int) (Math.random() * (100 - 1)) + 1;        
+            arr[i] = sc.nextInt(100);
     }
 
     int[] getArr() {
@@ -20,13 +22,32 @@ class GenRandomNums extends abs {
 
 class genSqauresAndcubes extends GenRandomNums {
     int s[] = getArr();
+
+    void generateRandomNumbers() {
+        super.generateRandomNumbers();
+    }
+
     Sqaure sq = new Sqaure();
+    Cube cb = new Cube();
+
+    void display() {
+        System.out.print("Array: ");
+        for(int i = 0; i < arr.length; i++)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
     
     void displaySqaures() {
-        for(int i = 0; i < s.length; i++) {
-            sq.findSqaure(s[i]);
-            System.out.print(s[i] + " ");
-        }
+        System.out.print("Sqaures: ");
+        for(int i = 0; i < s.length; i++)
+            System.out.print(sq.findSqaure(s[i]) + " ");
+        System.out.println();
+    }
+
+    void displayCubes() {
+        System.out.print("Cubes: ");
+        for(int i = 0; i < s.length; i++)
+            System.out.print(cb.findCube(s[i]) + " ");
         System.out.println();
     }
 }
@@ -34,7 +55,12 @@ class genSqauresAndcubes extends GenRandomNums {
 public class _4c_SquareAndCube extends genSqauresAndcubes {
 
     public static void main(String[] args) {
+
         genSqauresAndcubes sqAndcb = new genSqauresAndcubes();
+
+        sqAndcb.generateRandomNumbers();
+        sqAndcb.display();
         sqAndcb.displaySqaures();
+        sqAndcb.displayCubes();
     }
 }
