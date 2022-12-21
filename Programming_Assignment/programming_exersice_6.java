@@ -1,6 +1,4 @@
-package Programming_Assignment;
-
-import Programming_Assignment.Employee.Emp;
+import Employee.Emp;
 
 public class programming_exersice_6 {
     public static void main(String[] args) {

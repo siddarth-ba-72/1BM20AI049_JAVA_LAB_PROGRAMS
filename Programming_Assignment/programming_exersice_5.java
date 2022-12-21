@@ -1,5 +1,3 @@
-package Programming_Assignment;
-
 class Shape {
     String shapeName;
 

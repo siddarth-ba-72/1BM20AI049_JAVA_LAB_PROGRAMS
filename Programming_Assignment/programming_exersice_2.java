@@ -1,5 +1,3 @@
-package Programming_Assignment;
-
 import java.util.Scanner;
 
 class Clock {

@@ -1,5 +1,3 @@
-package Programming_Assignment;
-
 abstract class Animal {
     protected int legs;
 

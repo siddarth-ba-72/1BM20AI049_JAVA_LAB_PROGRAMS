@@ -1,4 +1,4 @@
-package Programming_Assignment.Employee;
+package Employee;
 
 public class Emp {
 
