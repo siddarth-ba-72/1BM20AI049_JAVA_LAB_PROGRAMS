@@ -2,6 +2,10 @@
 # Compiled class file
 *.class
 
+# Temp java file
+*temp.java
+*Temp.java
+
 # Log file
 *.log
 
