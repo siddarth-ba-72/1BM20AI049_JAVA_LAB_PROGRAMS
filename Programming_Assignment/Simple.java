@@ -1,6 +1,6 @@
 import Calculator.Operations;
 
-public class Simple {
+public class simple {
     public static void main(String[] args) {
         Operations op = new Operations(5, 6);
         op.sum();
