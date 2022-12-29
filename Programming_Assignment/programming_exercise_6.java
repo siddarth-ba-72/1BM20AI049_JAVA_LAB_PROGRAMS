@@ -1,0 +1,9 @@
+import Employee.Emp;
+
+public class programming_exercise_6 {
+    public static void main(String[] args) {
+        Emp e = new Emp("ANU", "23", "Female", 12000);
+        e.calculate();
+        e.display();
+    }
+}
