@@ -85,13 +85,12 @@ class VendingMachine implements VendingMachineInterface {
 
     @Override
     public void displayChangeMessage() {
-        int change = this.totalCoins - this.itemPrice;
+        int change = calc.subtract(this.totalCoins, this.itemPrice);
         if (change < 0) {
             System.out.println("You still have to pay Rs." + (-change));
         }
         System.out.println("Balance change is Rs." + change);
     }
-
 }
 
 class Calculator {
