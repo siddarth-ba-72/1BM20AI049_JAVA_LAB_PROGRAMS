@@ -16,7 +16,7 @@ import java.util.Map;
 interface VendingMachineInterface {
     void displayProductMessage();
 
-    void selectProduct(String item);
+    void selectProduct(String... items);
 
     void displayEnterCoinsMessage();
 
@@ -30,24 +30,18 @@ class VendingMachine implements VendingMachineInterface {
     private Calculator calc;
     private Map<String, Integer> products;
     private int totalCoins;
-    private int itemPrice;
-    private boolean productFound;
+    private int totalPrice;
 
     public VendingMachine() {
         this.calc = new Calculator();
         this.products = new HashMap<>();
         this.totalCoins = 0;
-        this.itemPrice = 0;
-        this.productFound = true;
+        this.totalPrice = 0;
         products.put("Coke", 90);
         products.put("Sandwich", 50);
         products.put("Water", 20);
         products.put("Milkshake", 70);
         System.out.println("\n----- Welcome to MY VEND -----\n");
-    }
-
-    public boolean isProduct() {
-        return this.productFound;
     }
 
     @Override
@@ -58,15 +52,17 @@ class VendingMachine implements VendingMachineInterface {
     }
 
     @Override
-    public void selectProduct(String item) {
-        System.out.println("\nYou have selected: " + item);
-        if (!products.containsKey(item)) {
-            System.out.println("No such product");
-            this.productFound = false;
-            return;
+    public void selectProduct(String... items) {
+        System.out.println("\nYour selected items:-");
+        for (String item : items) {
+            if (!products.containsKey(item)) {
+                System.out.println(item + " Not availabe");
+                continue;
+            }
+            System.out.println(item + ": " + products.get(item));
+            totalPrice += products.get(item);
         }
-        this.itemPrice = products.get(item);
-        System.out.println("Price of " + item + " is Rs." + this.itemPrice);
+        System.out.println("\nTotal amount: " + this.totalPrice);
     }
 
     @Override
@@ -85,11 +81,11 @@ class VendingMachine implements VendingMachineInterface {
 
     @Override
     public void displayChangeMessage() {
-        int change = calc.subtract(this.totalCoins, this.itemPrice);
-        if (change < 0) {
+        int change = calc.subtract(this.totalCoins, this.totalPrice);
+        if (change < 0)
             System.out.println("You still have to pay Rs." + (-change));
-        }
-        System.out.println("Balance change is Rs." + change);
+        else
+            System.out.println("Balance change is Rs." + change);
     }
 }
 
@@ -105,24 +101,11 @@ class Calculator {
 
 public class _10_vending_machine {
     public static void main(String[] args) {
-        VendingMachine vm_water = new VendingMachine();
-        vm_water.displayProductMessage();
-        vm_water.selectProduct("Water");
-        if (vm_water.isProduct()) {
-            vm_water.displayEnterCoinsMessage();
-            vm_water.enterCoins(1, 5, 6, 9);
-            vm_water.displayChangeMessage();
-        }
-        System.out.println("\nThanks for vending!");
-
-        VendingMachine vm_biscuit = new VendingMachine();
-        vm_biscuit.displayProductMessage();
-        vm_biscuit.selectProduct("Orea Biscuit");
-        if (vm_biscuit.isProduct()) {
-            vm_biscuit.displayEnterCoinsMessage();
-            vm_biscuit.enterCoins(1, 5, 6, 9);
-            vm_biscuit.displayChangeMessage();
-        }
-        System.out.println("\nThanks for vending!");
+        VendingMachine vm = new VendingMachine();
+        vm.displayProductMessage();
+        vm.selectProduct("Water", "Cake", "Milkshake");
+        vm.displayEnterCoinsMessage();
+        vm.enterCoins(22, 25, 25, 3);
+        vm.displayChangeMessage();
     }
 }
