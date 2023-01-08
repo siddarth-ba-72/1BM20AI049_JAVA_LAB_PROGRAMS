@@ -121,7 +121,7 @@ public class _10_vending_machine {
             vm_water.enterCoins(1, 5, 6, 9);
             vm_water.displayChangeMessage();
         }
-        System.out.println("\nThanks for shopping!");
+        System.out.println("\nThanks for vending!");
 
         VendingMachine vm_biscuit = new VendingMachine();
         vm_biscuit.displayProductMessage();
@@ -131,6 +131,6 @@ public class _10_vending_machine {
             vm_biscuit.enterCoins(1, 5, 6, 9);
             vm_biscuit.displayChangeMessage();
         }
-        System.out.println("\nThanks for shopping!");
+        System.out.println("\nThanks for vending!");
     }
 }
