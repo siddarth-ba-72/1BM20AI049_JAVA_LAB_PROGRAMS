@@ -111,8 +111,7 @@ class Number {
         int numOfDigs = noOfDigits(m);
         while (m > 0) {
             int rem = m % 10;
-            numOfDigs--;
-            rev += rem * Math.pow(10, numOfDigs);
+            rev += rem * Math.pow(10, (numOfDigs-- - 1));
             m /= 10;
         }
         return rev;
