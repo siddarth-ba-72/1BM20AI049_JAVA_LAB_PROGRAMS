@@ -1,5 +1,10 @@
 package cie_1_lab_cycle_practice_programs;
 
+/* Question:-
+Implement stack and queues using java. Use the concept of abstract class and
+inheritance
+*/
+
 abstract class Buffer {
     protected int[] buffer;
     protected int size;
